@@ -11,7 +11,6 @@ const completedStyle = {
 }
 
 const Task = (props) => (
-    <div>
         <ListItem
             onClick={() => props.completeTask(props.task.key)}
             
@@ -26,7 +25,6 @@ const Task = (props) => (
             }
             >
         </ListItem>
-    </div>
 )
 
 export default Task
