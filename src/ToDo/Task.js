@@ -1,5 +1,7 @@
 import React from 'react'
 
+import RaisedButton from 'material-ui/RaisedButton'
+
 const completedStyle = {
     textDecoration: 'line-through'
 }
@@ -12,11 +14,12 @@ const Task = (props) => (
         >
             {props.task.taskText}
         </div>
-        <button
+        <RaisedButton
+            secondary={true}
             onClick={() => props.deleteTask(props.task.key)}    
         >
             DELETE
-        </button>
+        </RaisedButton>
     </div>
 )
 
