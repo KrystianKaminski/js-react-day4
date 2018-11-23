@@ -25,19 +25,24 @@ class ToDo extends React.Component {
       tasks: this.state.tasks.filter(task => task.key !== taskKey)
     });
 
-    completeTask = taskKey => this.setState({
-        tasks: this.state.tasks.map(
-            task => (
-                (task.key === taskKey) ?
-                    {
-                        ...task,
-                        isCompleted: true
-                    }
-                    :
-                    task
-            )
-        )
-    })
+  completeTask = taskKey =>
+    this.setState({
+      tasks: this.state.tasks.map(task =>
+        task.key === taskKey
+          ? {
+              ...task,
+              isCompleted: true
+            }
+          : task
+      )
+    });
+
+    onAllClickHandler = () => this.setState( {chosenFilter: 'ALL'})
+    onCompletedClickHandler = () => this.setState( {chosenFilter: 'COMPLETED'})
+    onUnCompletedClickHandler = () => this.setState( {chosenFilter: 'UNCOMPLETED'})
+
+    onFilterTextChangeHandler = event => this.setState({filterText: event.target.value})
+    onNewTaskTextChangeHandler = event => this.setState({newTaskText: event.target.value})
 
   render() {
     return <div>ToDo</div>;
