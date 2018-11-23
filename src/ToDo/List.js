@@ -20,7 +20,20 @@ const List = (props) => (
                         return true
                 }
             })
-            .filter(task => task.taskText.includes(props.filterText))
+            .filter(task => (
+                task.taskText
+                .toLowerCase()
+                .replace(/\s/g, '')
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, "")
+                .includes(
+                    props.filterText
+                    .toLowerCase()
+                    .replace(/\s/g, '')
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, "")
+                    )))
+
             .map(
                 task => (
                     <Task
