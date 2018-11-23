@@ -45,7 +45,20 @@ class ToDo extends React.Component {
     onNewTaskTextChangeHandler = event => this.setState({newTaskText: event.target.value})
 
   render() {
-    return <div>ToDo</div>;
+    return (
+        <div>
+            <input
+                type="text"
+                value={this.state.newTaskText}
+                onChange={this.onNewTaskTextChangeHandler}
+            />
+            <button
+                onClick={this.addTask}
+            >
+                Add task!
+            </button>
+        </div>
+    );
   }
 }
 
