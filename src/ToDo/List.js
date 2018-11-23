@@ -20,6 +20,7 @@ const List = (props) => (
                         return true
                 }
             })
+            .filter(task => task.taskText.includes(props.filterText))
             .map(
                 task => (
                     <Task
