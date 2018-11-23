@@ -1,6 +1,7 @@
 import React from "react";
 import AddTask from "./AddTask";
 import List from "./List";
+import Search from "./Search";
 
 class ToDo extends React.Component {
   state = {
@@ -54,6 +55,13 @@ class ToDo extends React.Component {
                 newTaskText={this.state.newTaskText}
                 onNewTaskTextChangeHandler={this.onNewTaskTextChangeHandler}
                 addTask={this.addTask}
+            />
+            <Search
+                filterText={this.state.filterText}
+                onFilterTextChangeHandler={this.onFilterTextChangeHandler}
+                onAllClickHandler={this.onAllClickHandler}
+                onCompletedClickHandler={this.onCompletedClickHandler}
+                onUnCompletedClickHandler={this.onUnCompletedClickHandler}
             />
             <List
                 tasksList={this.state.tasks}
