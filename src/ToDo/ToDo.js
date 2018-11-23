@@ -1,4 +1,5 @@
 import React from "react";
+import AddTask from "./AddTask";
 
 class ToDo extends React.Component {
   state = {
@@ -17,7 +18,8 @@ class ToDo extends React.Component {
 
   addTask = () =>
     this.setState({
-      tasks: this.state.tasks.concat(this.createTask(this.state.newTaskText))
+      tasks: this.state.tasks.concat(this.createTask(this.state.newTaskText)),
+      newTaskText: ''
     });
 
   deleteTask = taskKey =>
@@ -47,16 +49,11 @@ class ToDo extends React.Component {
   render() {
     return (
         <div>
-            <input
-                type="text"
-                value={this.state.newTaskText}
-                onChange={this.onNewTaskTextChangeHandler}
+            <AddTask
+                newTaskText={this.newTaskText}
+                onNewTaskTextChangeHandler={this.onNewTaskTextChangeHandler}
+                addTask={this.addTask}
             />
-            <button
-                onClick={this.addTask}
-            >
-                Add task!
-            </button>
         </div>
     );
   }
