@@ -20,7 +20,7 @@ class ToDo extends React.Component {
   addTask = () =>
     this.setState({
       tasks: this.state.tasks.concat(this.createTask(this.state.newTaskText)),
-      newTaskText: ''
+      newTaskText: ""
     });
 
   deleteTask = taskKey =>
@@ -51,11 +51,13 @@ class ToDo extends React.Component {
     return (
         <div>
             <AddTask
-                newTaskText={this.newTaskText}
+                newTaskText={this.state.newTaskText}
                 onNewTaskTextChangeHandler={this.onNewTaskTextChangeHandler}
                 addTask={this.addTask}
             />
-            <List/>
+            <List
+                tasksList={this.state.tasks}
+            />
         </div>
     );
   }
