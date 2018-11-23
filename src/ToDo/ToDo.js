@@ -77,6 +77,8 @@ class ToDo extends React.Component {
                 onUnCompletedClickHandler={this.onUnCompletedClickHandler}
             />
             <List
+                filterText={this.state.filterText}
+                chosenFilter={this.state.chosenFilter}
                 tasksList={this.state.tasks}
                 completeTask={this.completeTask}
                 deleteTask={this.deleteTask}

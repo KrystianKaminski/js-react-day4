@@ -5,7 +5,7 @@ const Search = (props) => (
         <div>
             <input
                 type="text"
-                placeholder="Filter"
+                placeholder="Filter tasks"
                 value={props.filterText}
                 onChange={props.onFilterTextChangeHandler}
             />
