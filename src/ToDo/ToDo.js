@@ -1,40 +1,44 @@
-import React from 'react'
+import React from "react";
 
 class ToDo extends React.Component {
-    state = {
-        tasks: [],
-        filterText: '',
-        chosenFilter: 'ALL',
-        newTaskText: ''
-    }
+  state = {
+    tasks: [],
+    filterText: "",
+    chosenFilter: "ALL",
+    newTaskText: ""
+  };
 
-    createTask = text => ({
-        taskText: text,
-        isCompleted: false,
-        // good enough to make unique key in that case
-        key: Date.now()
+  createTask = text => ({
+    taskText: text,
+    isCompleted: false,
+    // good enough to make unique key in that case
+    key: Date.now()
+  });
+
+  addTask = () =>
+    this.setState({
+      tasks: this.state.tasks.concat(this.createTask(this.state.newTaskText))
+    });
+
+  deleteTask = taskKey =>
+    this.setState({
+      tasks: this.state.tasks.filter(task => task.key !== taskKey)
+    });
+
+    completeTask = taskKey => this.setState({
+        tasks: this.state.tasks.map(task => {
+            if (task.key !== taskKey) {
+                return task
+            } else {
+                task.isCompleted = true
+                return task
+            }
+        })
     })
 
-    addTask = () => this.setState({ 
-        tasks: this.state.tasks.concat(
-            this.createTask(
-                this.state.newTaskText
-            ))
-     })
-
-     deleteTask = taskKey => this.setState({
-         tasks: this.state.tasks.filter(
-             task => task.key !== taskKey
-         )
-     })
-
-    render() {
-        return (
-            <div>
-                ToDo
-            </div>
-        )
-    }
+  render() {
+    return <div>ToDo</div>;
+  }
 }
 
-export default ToDo
+export default ToDo;
