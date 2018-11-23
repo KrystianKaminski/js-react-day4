@@ -1,5 +1,6 @@
 import React from "react";
 import AddTask from "./AddTask";
+import List from "./List";
 
 class ToDo extends React.Component {
   state = {
@@ -54,6 +55,7 @@ class ToDo extends React.Component {
                 onNewTaskTextChangeHandler={this.onNewTaskTextChangeHandler}
                 addTask={this.addTask}
             />
+            <List/>
         </div>
     );
   }
