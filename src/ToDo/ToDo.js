@@ -57,6 +57,8 @@ class ToDo extends React.Component {
             />
             <List
                 tasksList={this.state.tasks}
+                completeTask={this.completeTask}
+                deleteTask={this.deleteTask}
             />
         </div>
     );
