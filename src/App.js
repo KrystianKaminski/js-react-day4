@@ -1,8 +1,9 @@
 import React from 'react';
+import ToDo from './ToDo';
 
-const App = () => (
+const App = (props) => (
   <div>
-    Hello
+    <ToDo/>
   </div>
 )
 
