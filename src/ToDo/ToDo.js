@@ -3,6 +3,15 @@ import AddTask from "./AddTask";
 import List from "./List";
 import Search from "./Search";
 
+import Paper from 'material-ui/Paper'
+
+const style = {
+    paper: {
+        margin: 12,
+        padding: 50
+    }
+}
+
 class ToDo extends React.Component {
   state = (
       JSON.parse(localStorage.getItem('to-do-list-state'))
@@ -63,28 +72,32 @@ class ToDo extends React.Component {
 
   render() {
     return (
-        <div>
-            <AddTask
-                newTaskText={this.state.newTaskText}
-                onNewTaskTextChangeHandler={this.onNewTaskTextChangeHandler}
-                addTask={this.addTask}
-            />
-            <Search
-                filterText={this.state.filterText}
-                chosenFilter={this.state.chosenFilter}
-                onFilterTextChangeHandler={this.onFilterTextChangeHandler}
-                onAllClickHandler={this.onAllClickHandler}
-                onCompletedClickHandler={this.onCompletedClickHandler}
-                onUnCompletedClickHandler={this.onUnCompletedClickHandler}
-            />
-            <List
-                filterText={this.state.filterText}
-                chosenFilter={this.state.chosenFilter}
-                tasksList={this.state.tasks}
-                completeTask={this.completeTask}
-                deleteTask={this.deleteTask}
-            />
-        </div>
+        <Paper
+            style={style.paper}
+        >
+            
+                <AddTask
+                    newTaskText={this.state.newTaskText}
+                    onNewTaskTextChangeHandler={this.onNewTaskTextChangeHandler}
+                    addTask={this.addTask}
+                />
+                <Search
+                    filterText={this.state.filterText}
+                    chosenFilter={this.state.chosenFilter}
+                    onFilterTextChangeHandler={this.onFilterTextChangeHandler}
+                    onAllClickHandler={this.onAllClickHandler}
+                    onCompletedClickHandler={this.onCompletedClickHandler}
+                    onUnCompletedClickHandler={this.onUnCompletedClickHandler}
+                />
+                <List
+                    filterText={this.state.filterText}
+                    chosenFilter={this.state.chosenFilter}
+                    tasksList={this.state.tasks}
+                    completeTask={this.completeTask}
+                    deleteTask={this.deleteTask}
+                />
+        
+        </Paper>
     );
   }
 }

@@ -5,7 +5,7 @@ import TextField from 'material-ui/TextField';
 
 const style = {
     button: {
-        margin: 12
+        paddingBottom: 20
     }
 }
 
@@ -14,9 +14,10 @@ const Search = (props) => (
         <div>
             <TextField
                 type="text"
-                placeholder="Filter tasks"
+                floatingLabelText="Filter tasks"
                 value={props.filterText}
                 onChange={props.onFilterTextChangeHandler}
+                fullWidth={true}
             />
         </div>
         <div>
@@ -26,8 +27,8 @@ const Search = (props) => (
                 primary={true}
                 label="ALL"
                 style={style.button}
-            >
-            </RaisedButton>
+                fullWidth={true}
+            />
         </div>
         <div>
             <RaisedButton
@@ -36,8 +37,8 @@ const Search = (props) => (
                 primary={true}
                 label="COMPLETED"
                 style={style.button}
-            >
-            </RaisedButton>
+                fullWidth={true}
+            />
         </div>
         <div>
             <RaisedButton
@@ -46,8 +47,8 @@ const Search = (props) => (
                 primary={true}
                 label="UNCOMPLETED"
                 style={style.button}
-            >
-            </RaisedButton>
+                fullWidth={true}
+            />
         </div>
     </div>
 )

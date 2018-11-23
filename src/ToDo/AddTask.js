@@ -10,11 +10,13 @@ const AddTask = (props) => (
                 type="text"
                 value={props.newTaskText}
                 onChange={props.onNewTaskTextChangeHandler}
+                fullWidth={true}
             />
         </div>
         <div>
             <RaisedButton
                 onClick={props.addTask}
+                fullWidth={true}
             >
                 Add task!
             </RaisedButton>
